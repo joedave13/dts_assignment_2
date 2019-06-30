@@ -14,9 +14,9 @@ import org.w3c.dom.Text;
 public class WelcomeBack extends AppCompatActivity {
 
     // Deklarasi variabel editTextEmail dengan tipe EditText
-    EditText editTextEmail;
+
     // Deklarasi variabel editTextPassword dengan tipe EditText
-    EditText editTextPassword;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,9 +24,9 @@ public class WelcomeBack extends AppCompatActivity {
         setContentView(R.layout.activity_welcome_back);
 
         // Binding edt_txt_email ke variabel editTextEmail
-        editTextEmail = findViewById(R.id.edt_txt_email);
+
         // Binding edt_txt_password ke variabel editTextPassword
-        editTextPassword = findViewById(R.id.edt_txt_password);
+
 
     }
 
@@ -37,26 +37,17 @@ public class WelcomeBack extends AppCompatActivity {
 
     public void postLogin(View view) {
         // Validasi input email dan password kosong
-        if(TextUtils.isEmpty(editTextEmail.getText().toString().trim()) &&
-                TextUtils.isEmpty(editTextPassword.getText().toString().trim())) {
-            Toast.makeText(view.getContext(), "Email dan Password tidak boleh kosong!",
-                    Toast.LENGTH_LONG).show();
-        }
+
         // Validasi input email kosong
-        else if(TextUtils.isEmpty(editTextEmail.getText().toString().trim())) {
-            Toast.makeText(view.getContext(), "Email tidak boleh kosong!", Toast.LENGTH_LONG).show();
-        }
+
         // Validasi inputan tipe email
-        else if(!isValidEmail(editTextEmail.getText().toString().trim())) {
-            Toast.makeText(view.getContext(), "Email tidak valid!", Toast.LENGTH_LONG).show();
-        }
-        else if(TextUtils.isEmpty(editTextPassword.getText().toString())) {
-            Toast.makeText(view.getContext(), "Password tidak boleh kosong!", Toast.LENGTH_LONG).show();
-        }
-        else {
-            Intent i = new Intent(WelcomeBack.this, SuccessActivity.class);
-            startActivity(i);
-        }
+
+        // Validasi password kosong
+
+
+        Intent i = new Intent(WelcomeBack.this, SuccessActivity.class);
+        startActivity(i);
+
     }
 
     /**
@@ -65,7 +56,5 @@ public class WelcomeBack extends AppCompatActivity {
      * @param email : email input from editText
      * @return
      */
-    public static boolean isValidEmail(CharSequence email) {
-        return (Patterns.EMAIL_ADDRESS.matcher(email).matches());
-    }
+
 }
