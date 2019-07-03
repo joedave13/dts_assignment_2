@@ -117,4 +117,6 @@
         app:layout_constraintStart_toStartOf="parent"
         android:onClick="postLogin"
         />
+
+    <!--Tambahkan untuk sign up-->
 </android.support.constraint.ConstraintLayout>

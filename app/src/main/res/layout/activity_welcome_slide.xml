@@ -84,4 +84,6 @@
         android:onClick="clickLogin"
         />
 
+    <!--Tambahkan untuk contact us menggunakan TextView-->
+
 </android.support.constraint.ConstraintLayout>

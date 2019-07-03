@@ -22,4 +22,8 @@ public class WelcomeSlideCalendar extends AppCompatActivity {
         Intent i = new Intent(WelcomeSlideCalendar.this, WelcomeBack.class);
         startActivity(i);
     }
+
+    public void clickContactUs(View view) {
+        // Panggil inplicit intent
+    }
 }

@@ -50,11 +50,8 @@ public class WelcomeBack extends AppCompatActivity {
 
     }
 
-    /**
-     * Email validation
-     *
-     * @param email : email input from editText
-     * @return
-     */
+    public void clickSignUp(View view) {
+        // Panggil intent sign up
+    }
 
 }
