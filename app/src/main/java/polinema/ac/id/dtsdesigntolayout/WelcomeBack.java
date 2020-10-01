@@ -26,10 +26,10 @@ public class WelcomeBack extends AppCompatActivity {
         setContentView(R.layout.activity_welcome_back);
 
         // Binding edt_txt_email ke variabel editTextEmail
+        editEmail = (EditText) findViewById(R.id.edt_txt_email);
 
         // Binding edt_txt_password ke variabel editTextPassword
-
-
+        editPassword = (EditText) findViewById(R.id.edt_txt_password);
     }
 
     public void clickForgot(View view) {

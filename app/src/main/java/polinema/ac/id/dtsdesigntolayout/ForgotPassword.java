@@ -12,6 +12,7 @@ import android.widget.Toast;
 public class ForgotPassword extends AppCompatActivity {
 
     // Deklarasi EditText
+    EditText editEmail;
 
 
     @Override
@@ -20,15 +21,22 @@ public class ForgotPassword extends AppCompatActivity {
         setContentView(R.layout.activity_forgot_password);
 
         // Binding EditText
+        editEmail = (EditText) findViewById(R.id.edt_txt_email);
     }
 
     public void postSendRequest(View view) {
         // Validasi email kosong
-
+        if (TextUtils.isEmpty(editEmail.getText().toString().trim())) {
+            Toast.makeText(view.getContext(), "Email tidak boleh kosong!", Toast.LENGTH_LONG).show();
+        }
         // Validasi format email
-
-        Intent i = new Intent(ForgotPassword.this, ResetPassword.class);
-        startActivity(i);
+        else if (!isValidEmail(editEmail.getText().toString().trim())) {
+            Toast.makeText(view.getContext(),"Email tidak valid!", Toast.LENGTH_LONG).show();
+        }
+        else {
+            Intent i = new Intent(ForgotPassword.this, ResetPassword.class);
+            startActivity(i);
+        }
     }
 
     /**
@@ -37,5 +45,9 @@ public class ForgotPassword extends AppCompatActivity {
      * @param email : email input from editText
      * @return
      */
+
+    public static boolean isValidEmail(CharSequence email) {
+        return (Patterns.EMAIL_ADDRESS.matcher(email).matches());
+    }
 
 }
