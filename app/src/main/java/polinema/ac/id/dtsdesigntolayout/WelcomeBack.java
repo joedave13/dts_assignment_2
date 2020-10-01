@@ -14,8 +14,10 @@ import org.w3c.dom.Text;
 public class WelcomeBack extends AppCompatActivity {
 
     // Deklarasi variabel editTextEmail dengan tipe EditText
+    EditText editEmail;
 
     // Deklarasi variabel editTextPassword dengan tipe EditText
+    EditText editPassword;
 
 
     @Override
@@ -37,21 +39,33 @@ public class WelcomeBack extends AppCompatActivity {
 
     public void postLogin(View view) {
         // Validasi input email dan password kosong
-
+        if (TextUtils.isEmpty(editEmail.getText().toString().trim()) && TextUtils.isEmpty(editPassword.getText().toString().trim())) {
+            Toast.makeText(view.getContext(), "Email dan Password tidak boleh kosong!", Toast.LENGTH_LONG).show();
+        }
         // Validasi input email kosong
-
+        else if (TextUtils.isEmpty(editEmail.getText().toString().trim())) {
+            Toast.makeText(view.getContext(), "Email tidak boleh kosong!", Toast.LENGTH_LONG).show();
+        }
         // Validasi inputan tipe email
-
+        else if (!isValidEmail(editEmail.getText().toString().trim())) {
+            Toast.makeText(view.getContext(), "Email tidak valid!", Toast.LENGTH_LONG).show();
+        }
         // Validasi password kosong
-
-
-        Intent i = new Intent(WelcomeBack.this, SuccessActivity.class);
-        startActivity(i);
-
+        else if (TextUtils.isEmpty(editPassword.getText().toString().trim())) {
+            Toast.makeText(view.getContext(), "Password tidak boleh kosong!", Toast.LENGTH_LONG).show();
+        }
+        else {
+            Intent i = new Intent(WelcomeBack.this, SuccessActivity.class);
+            startActivity(i);
+        }
     }
 
     public void clickSignUp(View view) {
         // Panggil intent sign up
+    }
+
+    public static boolean isValidEmail(CharSequence email) {
+        return (Patterns.EMAIL_ADDRESS.matcher(email).matches());
     }
 
 }
